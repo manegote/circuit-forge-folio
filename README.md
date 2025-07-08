@@ -1,6 +1,6 @@
 # Electronics Engineering Portfolio - Static Website
 
-This is a complete static website conversion of the React-based electronics engineering portfolio. The website showcases projects, blog posts, gallery images, and provides information about electronics engineering work focused on battery systems, PCB design, and custom tools.
+This is a complete static website conversion of the React-based electronics engineering portfolio. The website showcases engineering projects, gallery images, and provides information about electronics engineering work focused on battery systems, PCB design, and custom tools.
 
 ## 🚀 Features
 
@@ -16,9 +16,8 @@ This is a complete static website conversion of the React-based electronics engi
 ```
 .
 ├── index.html          # Homepage with hero section and featured content
-├── blog.html           # Blog posts with filtering and search
-├── projects.html       # Engineering projects showcase
-├── gallery.html        # Image gallery with modal viewer
+├── projects.html       # Engineering projects showcase with filtering
+├── gallery.html        # Image gallery with modal viewer and download
 ├── about.html          # About page with detailed information
 ├── contact.html        # Contact form with validation
 ├── styles.css          # Complete CSS styles and responsive design
@@ -80,10 +79,9 @@ Edit `styles.css` to modify:
 ### Content Updates
 
 1. **Projects**: Edit the project cards HTML in `projects.html`
-2. **Blog Posts**: Modify blog post content in `blog.html`
-3. **Gallery Images**: Update image URLs and descriptions in `gallery.html`
-4. **About Content**: Edit `about.html` for personal/company information
-5. **Contact Info**: Update contact details in `contact.html`
+2. **Gallery Images**: Update image URLs and descriptions in `gallery.html`
+3. **About Content**: Edit `about.html` for personal/company information
+4. **Contact Info**: Update contact details in `contact.html`
 
 ### Adding New Pages
 
@@ -97,7 +95,6 @@ Edit `styles.css` to modify:
 ### Search and Filtering
 
 - **Projects Page**: Filter by status, category, and search terms
-- **Blog Page**: Filter by category, tags, and search content
 - **Gallery Page**: Filter by category, tags, and search descriptions
 
 ### Modal Gallery
