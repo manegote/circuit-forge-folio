@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - Electronics Engineering Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="header-content">
+        <div class="header-top">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">EE</div>
+            <span class="logo-text">Electronics Engineering</span>
+          </a>
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item"><a href="blog.html">Blog</a></li>
+            <li class="nav-item">
+              <a href="projects.html" class="active">Projects</a>
+            </li>
+            <li class="nav-item"><a href="gallery.html">Gallery</a></li>
+            <li class="nav-item"><a href="about.html">About</a></li>
+            <li class="nav-item"><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> → <span>Projects</span>
+      </div>
+
+      <div class="py-8">
+        <h1>Engineering Projects</h1>
+        <p class="subtitle">
+          A portfolio of electronics engineering projects including battery
+          systems, PCB designs, custom tools, and supporting infrastructure.
+          Some projects are part of larger goals.
+        </p>
+
+        <!-- Search and Filters -->
+        <div class="filter-section">
+          <div class="filter-header">
+            <svg
+              class="filter-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.414A1 1 0 013 6.707V4z"
+              ></path>
+            </svg>
+            <span>Filter Projects</span>
+          </div>
+
+          <div class="filter-grid">
+            <div>
+              <label>Search</label>
+              <div class="search-container">
+                <svg
+                  class="search-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+                <input
+                  type="search"
+                  placeholder="Search projects..."
+                  id="searchInput"
+                  class="search-input"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label>Status</label>
+              <select id="statusFilter" class="filter-select">
+                <option value="">All Statuses</option>
+                <option value="completed">Completed</option>
+                <option value="in-progress">In Progress</option>
+                <option value="planning">Planning</option>
+                <option value="paused">Paused</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Category</label>
+              <select id="categoryFilter" class="filter-select">
+                <option value="">All Categories</option>
+                <option value="Business">Business</option>
+                <option value="Tool">Tool</option>
+                <option value="Mechanical">Mechanical</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-results" id="filterResults" style="display: none">
+            <span id="resultsText"></span>
+            <button
+              onclick="clearProjectFilters()"
+              class="btn btn-outline btn-sm"
+            >
+              Clear Filters
+            </button>
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-3" id="projectsGrid">
+          <div
+            class="card"
+            data-status="in-progress"
+            data-category="Business"
+            data-tags="Business,Battery,Manufacturing,Custom"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1609392553633-ba5e73b09cca?w=800&h=600&fit=crop"
+              alt="Custom Battery Business"
+            />
+            <div class="card-content">
+              <h2>Custom Lithium Battery Pack Business</h2>
+              <p>
+                Building a complete business around custom lithium-ion battery
+                pack design and manufacturing for specialized applications.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <span class="status-badge status-in-progress">In Progress</span>
+                <span class="text-xs text-muted-foreground">Business</span>
+              </div>
+
+              <div class="post-meta">
+                <span>Started 2023-06-01</span>
+              </div>
+
+              <div class="tags">
+                <span class="tag">#Business</span>
+                <span class="tag">#Battery</span>
+                <span class="tag">#Manufacturing</span>
+              </div>
+
+              <div class="card-footer">
+                <a
+                  href="project-detail.html?id=custom-battery-business"
+                  class="read-more"
+                  >View Project Details →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-status="completed"
+            data-category="Tool"
+            data-tags="Battery,Testing,Arduino,Safety"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop"
+              alt="Battery Pack Tester"
+            />
+            <div class="card-content">
+              <h2>Lithium Battery Pack Load Tester</h2>
+              <p>
+                Programmable load tester for safely discharging lithium battery
+                packs to storage voltage before long-term storage.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <span class="status-badge status-completed">Completed</span>
+                <span class="text-xs text-muted-foreground">Tool</span>
+              </div>
+
+              <div class="post-meta">
+                <span>Started 2023-11-01</span>
+                <span>Completed 2024-01-15</span>
+              </div>
+
+              <div class="tags">
+                <span class="tag">#Battery</span>
+                <span class="tag">#Testing</span>
+                <span class="tag">#Arduino</span>
+              </div>
+
+              <div class="card-footer">
+                <a
+                  href="project-detail.html?id=lithium-pack-tester"
+                  class="read-more"
+                  >View Project Details →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-status="completed"
+            data-category="Tool"
+            data-tags="Welding,Battery,Arduino,Assembly"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&h=600&fit=crop"
+              alt="Spot Welder"
+            />
+            <div class="card-content">
+              <h2>Spot Welder Controller for Battery Assembly</h2>
+              <p>
+                Precision timing controller for microwave transformer-based spot
+                welder to reliably join nickel strips in battery pack
+                construction.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <span class="status-badge status-completed">Completed</span>
+                <span class="text-xs text-muted-foreground">Tool</span>
+              </div>
+
+              <div class="post-meta">
+                <span>Started 2023-10-15</span>
+                <span>Completed 2024-01-08</span>
+              </div>
+
+              <div class="tags">
+                <span class="tag">#Welding</span>
+                <span class="tag">#Battery</span>
+                <span class="tag">#Arduino</span>
+              </div>
+
+              <div class="card-footer">
+                <a
+                  href="project-detail.html?id=spot-welder-controller"
+                  class="read-more"
+                  >View Project Details →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-status="in-progress"
+            data-category="Mechanical"
+            data-tags="3D Print,Design,Mechanical,Battery"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop"
+              alt="Modular Case System"
+            />
+            <div class="card-content">
+              <h2>Modular Battery Case System</h2>
+              <p>
+                Flexible enclosure system for custom battery packs with
+                standardized mounting and connection interfaces.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <span class="status-badge status-in-progress">In Progress</span>
+                <span class="text-xs text-muted-foreground">Mechanical</span>
+              </div>
+
+              <div class="post-meta">
+                <span>Started 2024-01-20</span>
+              </div>
+
+              <div class="tags">
+                <span class="tag">#3D Print</span>
+                <span class="tag">#Design</span>
+                <span class="tag">#Mechanical</span>
+              </div>
+
+              <div class="card-footer">
+                <a
+                  href="project-detail.html?id=modular-case-system"
+                  class="read-more"
+                  >View Project Details →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-status="completed"
+            data-category="Tool"
+            data-tags="Reflow,SMD,Arduino,Temperature"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop"
+              alt="Reflow Oven"
+            />
+            <div class="card-content">
+              <h2>SMD Reflow Oven Conversion</h2>
+              <p>
+                Converting a standard toaster oven into a precision reflow oven
+                for surface-mount PCB assembly with PID temperature control.
+              </p>
+
+              <div class="flex items-center justify-between mb-4">
+                <span class="status-badge status-completed">Completed</span>
+                <span class="text-xs text-muted-foreground">Tool</span>
+              </div>
+
+              <div class="post-meta">
+                <span>Started 2023-09-01</span>
+                <span>Completed 2023-12-22</span>
+              </div>
+
+              <div class="tags">
+                <span class="tag">#Reflow</span>
+                <span class="tag">#SMD</span>
+                <span class="tag">#Arduino</span>
+              </div>
+
+              <div class="card-footer">
+                <a
+                  href="project-detail.html?id=reflow-oven-build"
+                  class="read-more"
+                  >View Project Details →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- No results message -->
+        <div id="noResults" class="no-results" style="display: none">
+          <p>No projects found matching your search criteria.</p>
+          <button onclick="clearProjectFilters()" class="btn btn-outline">
+            Clear Filters
+          </button>
+        </div>
+      </div>
+
+      <!-- Summary Stats -->
+      <div class="stats-section">
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Total Projects</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">3</div>
+            <div class="stat-label">Completed</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">2</div>
+            <div class="stat-label">In Progress</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" id="currentlyShowing">5</div>
+            <div class="stat-label">Currently Showing</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div>
+            <h3>Electronics Engineering</h3>
+            <p>
+              Designing and building lithium-ion battery packs, PCBs, custom
+              tools, and electronics projects.
+            </p>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="blog.html">Blog Posts</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Technologies</h4>
+            <ul>
+              <li>Lithium-ion Battery Design</li>
+              <li>PCB Design & Manufacturing</li>
+              <li>3D Modeling & Printing</li>
+              <li>Reflow Oven Construction</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © 2024 Electronics Engineering Portfolio. Built for showcasing
+            hardware projects.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+      // Projects-specific filtering functionality
+      function filterProjects() {
+        const searchQuery = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const statusFilter = document.getElementById("statusFilter").value;
+        const categoryFilter = document.getElementById("categoryFilter").value;
+
+        const projects = document.querySelectorAll("#projectsGrid .card");
+        let visibleCount = 0;
+
+        projects.forEach((project) => {
+          const title = project.querySelector("h2").textContent.toLowerCase();
+          const content = project.querySelector("p").textContent.toLowerCase();
+          const status = project.dataset.status;
+          const category = project.dataset.category;
+          const tags = project.dataset.tags.split(",");
+
+          const matchesSearch =
+            !searchQuery ||
+            title.includes(searchQuery) ||
+            content.includes(searchQuery) ||
+            tags.some((tag) => tag.toLowerCase().includes(searchQuery));
+          const matchesStatus = !statusFilter || status === statusFilter;
+          const matchesCategory =
+            !categoryFilter || category === categoryFilter;
+
+          if (matchesSearch && matchesStatus && matchesCategory) {
+            project.style.display = "block";
+            visibleCount++;
+          } else {
+            project.style.display = "none";
+          }
+        });
+
+        // Update results
+        const filterResults = document.getElementById("filterResults");
+        const resultsText = document.getElementById("resultsText");
+        const noResults = document.getElementById("noResults");
+        const currentlyShowing = document.getElementById("currentlyShowing");
+
+        currentlyShowing.textContent = visibleCount;
+
+        if (searchQuery || statusFilter || categoryFilter) {
+          filterResults.style.display = "flex";
+          resultsText.textContent = `Showing ${visibleCount} of 5 projects`;
+        } else {
+          filterResults.style.display = "none";
+        }
+
+        if (visibleCount === 0) {
+          noResults.style.display = "block";
+          document.getElementById("projectsGrid").style.display = "none";
+        } else {
+          noResults.style.display = "none";
+          document.getElementById("projectsGrid").style.display = "grid";
+        }
+      }
+
+      function clearProjectFilters() {
+        document.getElementById("searchInput").value = "";
+        document.getElementById("statusFilter").value = "";
+        document.getElementById("categoryFilter").value = "";
+        filterProjects();
+      }
+
+      // Add event listeners
+      document
+        .getElementById("searchInput")
+        .addEventListener("input", filterProjects);
+      document
+        .getElementById("statusFilter")
+        .addEventListener("change", filterProjects);
+      document
+        .getElementById("categoryFilter")
+        .addEventListener("change", filterProjects);
+    </script>
+  </body>
+</html>
