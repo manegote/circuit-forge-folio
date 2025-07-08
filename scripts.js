@@ -156,45 +156,9 @@ const projectsData = [
   },
 ];
 
-// Blog posts data
-const blogPostsData = [
-  {
-    id: "building-lithium-pack-tester",
-    title: "Building a Custom Lithium Battery Pack Load Tester",
-    summary:
-      "Designing and constructing a programmable load tester for safely discharging lithium battery packs to storage voltage before long-term storage.",
-    coverImage:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
-    readingTime: 8,
-    datePosted: "2024-01-15",
-    tags: ["Battery", "Testing", "Arduino", "PCB", "Safety"],
-    category: "Tool",
-  },
-  {
-    id: "spot-welder-controller",
-    title: "DIY Spot Welder Controller for Battery Pack Assembly",
-    summary:
-      "Creating a precision timing controller for a microwave transformer-based spot welder to reliably join nickel strips in battery pack construction.",
-    coverImage:
-      "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&h=600&fit=crop",
-    readingTime: 6,
-    datePosted: "2024-01-08",
-    tags: ["Welding", "Battery", "Arduino", "Safety", "Assembly"],
-    category: "Tool",
-  },
-  {
-    id: "reflow-oven-build",
-    title: "Converting a Toaster Oven into a SMD Reflow Oven",
-    summary:
-      "Step-by-step conversion of a standard toaster oven into a precision reflow oven for surface-mount PCB assembly with PID temperature control.",
-    coverImage:
-      "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop",
-    readingTime: 10,
-    datePosted: "2023-12-22",
-    tags: ["Reflow", "SMD", "Arduino", "Temperature", "PCB"],
-    category: "Tool",
-  },
-];
+// Project categories and statuses for filtering
+const projectCategories = ["Business", "Tool", "Mechanical"];
+const projectStatuses = ["planning", "in-progress", "completed", "paused"];
 
 // Gallery images data
 const galleryImagesData = [
@@ -444,8 +408,9 @@ function matchesFilter(item, filterValue, filterField) {
 if (typeof module !== "undefined" && module.exports) {
   module.exports = {
     projectsData,
-    blogPostsData,
     galleryImagesData,
+    projectCategories,
+    projectStatuses,
     getStatusColor,
     formatDate,
     validateForm,
