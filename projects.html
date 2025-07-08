@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - Electronics Engineering Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="header-content">
+        <div class="header-top">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">EE</div>
+            <span class="logo-text">Electronics Engineering</span>
+          </a>
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item">
+              <a href="projects.html" class="active">Projects</a>
+            </li>
+            <li class="nav-item"><a href="gallery.html">Gallery</a></li>
+            <li class="nav-item"><a href="about.html">About</a></li>
+            <li class="nav-item"><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> → <span>Projects</span>
+      </div>
+
+      <div class="py-8">
+        <h1>Engineering Projects</h1>
+        <p class="subtitle">
+          A portfolio of electronics engineering projects including battery
+          systems, PCB designs, custom tools, and supporting infrastructure.
+          Some projects are part of larger goals.
+        </p>
+
+        <!-- Search and Filters -->
+        <div class="filter-section">
+          <div class="filter-header">
+            <svg
+              class="filter-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.414A1 1 0 013 6.707V4z"
+              ></path>
+            </svg>
+            <span>Filter Projects</span>
+          </div>
+
+          <div class="filter-grid">
+            <div>
+              <label>Search</label>
+              <div class="search-container">
+                <svg
+                  class="search-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+                <input
+                  type="search"
+                  placeholder="Search projects..."
+                  id="searchInput"
+                  class="search-input"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label>Status</label>
+              <select id="statusFilter" class="filter-select">
+                <option value="">All Statuses</option>
+                <option value="completed">Completed</option>
+                <option value="in-progress">In Progress</option>
+                <option value="planning">Planning</option>
+                <option value="paused">Paused</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Category</label>
+              <select id="categoryFilter" class="filter-select">
+                <option value="">All Categories</option>
+                <option value="Business">Business</option>
+                <option value="Tool">Tool</option>
+                <option value="Mechanical">Mechanical</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-results" id="filterResults" style="display: none">
+            <span id="resultsText"></span>
+            <button
+              onclick="clearProjectFilters()"
+              class="btn btn-outline btn-sm"
+            >
+              Clear Filters
+            </button>
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-3" id="projectsGrid">
+          <div
+            class="card"
+            data-status="in-progress"
+            data-category="Business"
+            data-tags="Business,Battery,Manufacturing,Custom"
+            onclick="window.location.href='project-custom-battery-business.html'"
+            style="cursor: pointer"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1609392553633-ba5e73b09cca?w=800&h=600&fit=crop"
+              alt="Custom Battery Business"
+            />
+            <div class="card-content">
+              <h2>Custom Lithium Battery Pack Business</h2>
+              <p>
+                Building a complete business around custom lithium-ion battery
+                pack design and manufacturing for specialized applications where
+                commercial solutions don't fit.
+              </p>
+
+              <div class="flex items-center gap-4 mb-4">
+                <span class="status-badge status-in-progress">In Progress</span>
+                <span class="text-xs text-muted-foreground">Business</span>
+              </div>
+
+              <!-- Project Relationships -->
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  font-size: 0.75rem;
+                  color: var(--muted-foreground);
+                  margin-bottom: 1rem;
+                "
+              >
+                <svg
+                  style="width: 0.75rem; height: 0.75rem"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2v0a2 2 0 01-2-2v-5a2 2 0 00-2-2H8z"
+                  ></path>
+                </svg>
+                <span>3 subprojects</span>
+              </div>
+
+              <div class="post-meta">
+                <div style="display: flex; align-items: center; gap: 0.25rem">
+                  <svg
+                    style="width: 0.75rem; height: 0.75rem"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                  <span>Started June 2023</span>
+                </div>
+              </div>
+
+              <div class="tags">
+                <span class="tag">#Business</span>
+                <span class="tag">#Battery</span>
+                <span class="tag">#Manufacturing</span>
+              </div>
+
+              <div class="card-footer">
+                <span class="read-more">View Project Details →</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-status="completed"
+            data-category="Tool"
+            data-tags="Battery,Testing,Arduino,Safety"
+            onclick="window.location.href='project-lithium-pack-tester.html'"
+            style="cursor: pointer"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop"
+              alt="Battery Pack Tester"
+            />
+            <div class="card-content">
+              <h2>Lithium Battery Pack Load Tester</h2>
+              <p>
+                Programmable load tester for safely discharging lithium battery
+                packs to storage voltage. Features precision voltage monitoring,
+                temperature safety cutoffs, and data logging.
+              </p>
+
+              <div class="flex items-center gap-4 mb-4">
+                <span class="status-badge status-completed">Completed</span>
+                <span class="text-xs text-muted-foreground">Tool</span>
+              </div>
+
+              <!-- Project Relationships -->
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  font-size: 0.75rem;
+                  color: var(--muted-foreground);
+                  margin-bottom: 1rem;
+                "
+              >
+                <svg
+                  style="width: 0.75rem; height: 0.75rem"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2v0a2 2 0 01-2-2v-5a2 2 0 00-2-2H8z"
+                  ></path>
+                </svg>
+                <span>Part of larger project</span>
+              </div>
+
+              <div class="post-meta">
+                <div style="display: flex; align-items: center; gap: 0.25rem">
+                  <svg
+                    style="width: 0.75rem; height: 0.75rem"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                  <span>Started Nov 2023</span>
+                </div>
+                <span>Completed Jan 2024</span>
+              </div>
+
+              <div class="tags">
+                <span class="tag">#Battery</span>
+                <span class="tag">#Testing</span>
+                <span class="tag">#Arduino</span>
+              </div>
+
+              <div class="card-footer">
+                <span class="read-more">View Project Details →</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-status="completed"
+            data-category="Tool"
+            data-tags="Welding,Battery,Arduino,Assembly"
+            onclick="window.location.href='project-spot-welder-controller.html'"
+            style="cursor: pointer"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&h=600&fit=crop"
+              alt="Spot Welder"
+            />
+            <div class="card-content">
+              <h2>Spot Welder Controller for Battery Assembly</h2>
+              <p>
+                Precision timing controller for microwave transformer-based spot
+                welder. Features zero-crossing synchronization and safety
+                interlocks for reliable nickel strip welding.
+              </p>
+
+              <div class="flex items-center gap-4 mb-4">
+                <span class="status-badge status-completed">Completed</span>
+                <span class="text-xs text-muted-foreground">Tool</span>
+              </div>
+
+              <!-- Project Relationships -->
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  font-size: 0.75rem;
+                  color: var(--muted-foreground);
+                  margin-bottom: 1rem;
+                "
+              >
+                <svg
+                  style="width: 0.75rem; height: 0.75rem"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2v0a2 2 0 01-2-2v-5a2 2 0 00-2-2H8z"
+                  ></path>
+                </svg>
+                <span>Part of larger project</span>
+              </div>
+
+              <div class="post-meta">
+                <div style="display: flex; align-items: center; gap: 0.25rem">
+                  <svg
+                    style="width: 0.75rem; height: 0.75rem"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                  <span>Started Oct 2023</span>
+                </div>
+                <span>Completed Jan 2024</span>
+              </div>
+
+              <div class="tags">
+                <span class="tag">#Welding</span>
+                <span class="tag">#Battery</span>
+                <span class="tag">#Arduino</span>
+              </div>
+
+              <div class="card-footer">
+                <span class="read-more">View Project Details →</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-status="in-progress"
+            data-category="Mechanical"
+            data-tags="3D Print,Design,Mechanical,Battery"
+            onclick="window.location.href='project-modular-case-system.html'"
+            style="cursor: pointer"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop"
+              alt="Modular Case System"
+            />
+            <div class="card-content">
+              <h2>Modular Battery Case System</h2>
+              <p>
+                Flexible enclosure system with standardized mounting interfaces.
+                Enables mix-and-match assembly for various pack configurations
+                with professional appearance.
+              </p>
+
+              <div class="flex items-center gap-4 mb-4">
+                <span class="status-badge status-in-progress">In Progress</span>
+                <span class="text-xs text-muted-foreground">Mechanical</span>
+              </div>
+
+              <!-- Project Relationships -->
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  font-size: 0.75rem;
+                  color: var(--muted-foreground);
+                  margin-bottom: 1rem;
+                "
+              >
+                <svg
+                  style="width: 0.75rem; height: 0.75rem"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2v0a2 2 0 01-2-2v-5a2 2 0 00-2-2H8z"
+                  ></path>
+                </svg>
+                <span>Part of larger project</span>
+              </div>
+
+              <div class="post-meta">
+                <div style="display: flex; align-items: center; gap: 0.25rem">
+                  <svg
+                    style="width: 0.75rem; height: 0.75rem"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                  <span>Started Jan 2024</span>
+                </div>
+              </div>
+
+              <div class="tags">
+                <span class="tag">#3D Print</span>
+                <span class="tag">#Design</span>
+                <span class="tag">#Mechanical</span>
+              </div>
+
+              <div class="card-footer">
+                <span class="read-more">View Project Details →</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-status="completed"
+            data-category="Tool"
+            data-tags="Reflow,SMD,Arduino,Temperature"
+            onclick="window.location.href='project-reflow-oven-build.html'"
+            style="cursor: pointer"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop"
+              alt="Reflow Oven"
+            />
+            <div class="card-content">
+              <h2>SMD Reflow Oven Conversion</h2>
+              <p>
+                Toaster oven conversion with PID temperature control for
+                surface-mount PCB assembly. Enables professional-quality solder
+                joints on complex boards.
+              </p>
+
+              <div class="flex items-center gap-4 mb-4">
+                <span class="status-badge status-completed">Completed</span>
+                <span class="text-xs text-muted-foreground">Tool</span>
+              </div>
+
+              <div class="post-meta">
+                <div style="display: flex; align-items: center; gap: 0.25rem">
+                  <svg
+                    style="width: 0.75rem; height: 0.75rem"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                  <span>Started Sep 2023</span>
+                </div>
+                <span>Completed Dec 2023</span>
+              </div>
+
+              <div class="tags">
+                <span class="tag">#Reflow</span>
+                <span class="tag">#SMD</span>
+                <span class="tag">#Arduino</span>
+              </div>
+
+              <div class="card-footer">
+                <span class="read-more">View Project Details →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- No results message -->
+        <div id="noResults" class="no-results" style="display: none">
+          <p>No projects found matching your search criteria.</p>
+          <button onclick="clearProjectFilters()" class="btn btn-outline">
+            Clear Filters
+          </button>
+        </div>
+      </div>
+
+      <!-- Summary Stats -->
+      <div class="stats-section">
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Total Projects</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">3</div>
+            <div class="stat-label">Completed</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">2</div>
+            <div class="stat-label">In Progress</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" id="currentlyShowing">5</div>
+            <div class="stat-label">Currently Showing</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div>
+            <h3>Electronics Engineering</h3>
+            <p>
+              Designing and building lithium-ion battery packs, PCBs, custom
+              tools, and electronics projects.
+            </p>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Technologies</h4>
+            <ul>
+              <li>Lithium-ion Battery Design</li>
+              <li>PCB Design & Manufacturing</li>
+              <li>3D Modeling & Printing</li>
+              <li>Reflow Oven Construction</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © 2024 Electronics Engineering Portfolio. Built for showcasing
+            hardware projects.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+      // Projects-specific filtering functionality
+      function filterProjects() {
+        const searchQuery = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const statusFilter = document.getElementById("statusFilter").value;
+        const categoryFilter = document.getElementById("categoryFilter").value;
+
+        const projects = document.querySelectorAll("#projectsGrid .card");
+        let visibleCount = 0;
+
+        projects.forEach((project) => {
+          const title = project.querySelector("h2").textContent.toLowerCase();
+          const content = project.querySelector("p").textContent.toLowerCase();
+          const status = project.dataset.status;
+          const category = project.dataset.category;
+          const tags = project.dataset.tags.split(",");
+
+          const matchesSearch =
+            !searchQuery ||
+            title.includes(searchQuery) ||
+            content.includes(searchQuery) ||
+            tags.some((tag) => tag.toLowerCase().includes(searchQuery));
+          const matchesStatus = !statusFilter || status === statusFilter;
+          const matchesCategory =
+            !categoryFilter || category === categoryFilter;
+
+          if (matchesSearch && matchesStatus && matchesCategory) {
+            project.style.display = "block";
+            visibleCount++;
+          } else {
+            project.style.display = "none";
+          }
+        });
+
+        // Update results
+        const filterResults = document.getElementById("filterResults");
+        const resultsText = document.getElementById("resultsText");
+        const noResults = document.getElementById("noResults");
+        const currentlyShowing = document.getElementById("currentlyShowing");
+
+        currentlyShowing.textContent = visibleCount;
+
+        if (searchQuery || statusFilter || categoryFilter) {
+          filterResults.style.display = "flex";
+          resultsText.textContent = `Showing ${visibleCount} of 5 projects`;
+        } else {
+          filterResults.style.display = "none";
+        }
+
+        if (visibleCount === 0) {
+          noResults.style.display = "block";
+          document.getElementById("projectsGrid").style.display = "none";
+        } else {
+          noResults.style.display = "none";
+          document.getElementById("projectsGrid").style.display = "grid";
+        }
+      }
+
+      function clearProjectFilters() {
+        document.getElementById("searchInput").value = "";
+        document.getElementById("statusFilter").value = "";
+        document.getElementById("categoryFilter").value = "";
+        filterProjects();
+      }
+
+      // Add event listeners
+      document
+        .getElementById("searchInput")
+        .addEventListener("input", filterProjects);
+      document
+        .getElementById("statusFilter")
+        .addEventListener("change", filterProjects);
+      document
+        .getElementById("categoryFilter")
+        .addEventListener("change", filterProjects);
+    </script>
+  </body>
+</html>

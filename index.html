@@ -1,24 +1,777 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>circuit-forge-folio</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+    <title>Electronics Engineering Portfolio</title>
+    <style>
+      /* Reset and base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    <meta property="og:title" content="circuit-forge-folio" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+      :root {
+        /* Dark theme engineering portfolio colors */
+        --background: hsl(220, 13%, 9%);
+        --foreground: hsl(210, 40%, 98%);
+        --card: hsl(220, 13%, 11%);
+        --card-foreground: hsl(210, 40%, 98%);
+        --primary: hsl(212, 100%, 47%);
+        --primary-foreground: hsl(0, 0%, 100%);
+        --secondary: hsl(220, 13%, 15%);
+        --secondary-foreground: hsl(210, 40%, 98%);
+        --muted: hsl(220, 13%, 15%);
+        --muted-foreground: hsl(215, 20.2%, 65.1%);
+        --accent: hsl(178, 100%, 40%);
+        --accent-foreground: hsl(0, 0%, 100%);
+        --destructive: hsl(0, 84%, 60%);
+        --border: hsl(220, 13%, 20%);
+        --input: hsl(220, 13%, 15%);
+        --success: hsl(120, 100%, 35%);
+        --warning: hsl(45, 100%, 55%);
+        --header-bg: hsl(212, 100%, 47%);
+        --header-text: hsl(0, 0%, 100%);
+        --section-bg: hsl(220, 13%, 11%);
+        --section-border: hsl(220, 13%, 20%);
+      }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background-color: var(--background);
+        color: var(--foreground);
+        line-height: 1.6;
+      }
+
+      /* Header styles */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        background-color: var(--header-bg);
+        border-bottom: 4px solid var(--accent);
+        transition: all 0.3s ease;
+      }
+
+      .header.scrolled {
+        background-color: hsla(212, 100%, 47%, 0.8);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid hsla(178, 100%, 40%, 0.3);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-content {
+        max-width: 96rem;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      .header-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--header-text);
+        text-decoration: none;
+      }
+
+      .logo-icon {
+        width: 2rem;
+        height: 2rem;
+        background-color: var(--header-text);
+        color: var(--header-bg);
+        border-radius: 0.125rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.875rem;
+      }
+
+      .logo-text {
+        font-weight: bold;
+        font-size: 1.125rem;
+      }
+
+      .nav {
+        border-top: 1px solid hsla(0, 0%, 100%, 0.2);
+        padding: 0;
+      }
+
+      .nav-list {
+        display: flex;
+        gap: 0;
+        list-style: none;
+      }
+
+      .nav-item a {
+        display: block;
+        padding: 0.75rem 1rem;
+        color: hsla(0, 0%, 100%, 0.8);
+        text-decoration: none;
+        font-size: 0.875rem;
+        font-weight: 500;
+        border-bottom: 4px solid transparent;
+        transition: all 0.3s ease;
+      }
+
+      .nav-item a:hover,
+      .nav-item a.active {
+        color: var(--header-text);
+        border-bottom-color: var(--accent);
+        background-color: hsla(0, 0%, 100%, 0.1);
+      }
+
+      /* Main content */
+      .main {
+        max-width: 96rem;
+        margin: 0 auto;
+        padding: 0 1rem;
+        padding-top: 8rem;
+      }
+
+      /* Hero section */
+      .hero {
+        padding: 4rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        color: var(--muted-foreground);
+        margin-bottom: 2rem;
+        line-height: 1.7;
+        max-width: 64rem;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        border-radius: 0.375rem;
+        border: 1px solid;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: var(--primary-foreground);
+        border-color: var(--primary);
+      }
+
+      .btn-primary:hover {
+        background-color: hsl(212, 100%, 40%);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: var(--foreground);
+        border-color: var(--border);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--accent);
+        color: var(--accent-foreground);
+      }
+
+      .btn-gap {
+        gap: 1rem;
+      }
+
+      /* Sections */
+      .section {
+        padding: 4rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .section h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+      }
+
+      .section h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .section p {
+        color: var(--muted-foreground);
+        margin-bottom: 1rem;
+      }
+
+      /* Grid layouts */
+      .grid {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .grid-cols-3 {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+
+      .grid-cols-2 {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      }
+
+      /* Cards */
+      .card {
+        border: 1px solid var(--border);
+        background-color: var(--card);
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        transition: all 0.2s ease;
+      }
+
+      .card:hover {
+        background-color: var(--secondary);
+      }
+
+      .card img {
+        width: 100%;
+        height: 12rem;
+        object-fit: cover;
+        margin-bottom: 1rem;
+      }
+
+      .card h3 {
+        margin-bottom: 0.5rem;
+      }
+
+      .card p {
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Icons */
+      .icon {
+        width: 3rem;
+        height: 3rem;
+        color: var(--accent);
+        margin-bottom: 1rem;
+      }
+
+      /* Status badges */
+      .status-badge {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        border: 1px solid;
+        border-radius: 0.25rem;
+        text-transform: uppercase;
+      }
+
+      .status-completed {
+        border-color: var(--success);
+        color: var(--success);
+      }
+
+      .status-in-progress {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .status-planning {
+        border-color: var(--warning);
+        color: var(--warning);
+      }
+
+      /* Footer */
+      .footer {
+        background-color: var(--card);
+        border-top: 1px solid var(--border);
+        margin-top: 4rem;
+        padding: 2rem 0;
+      }
+
+      .footer-content {
+        max-width: 96rem;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer h3 {
+        font-weight: bold;
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer h4 {
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .footer p,
+      .footer li {
+        color: var(--muted-foreground);
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer ul {
+        list-style: none;
+      }
+
+      .footer a {
+        color: var(--muted-foreground);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .footer a:hover {
+        color: var(--foreground);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid var(--border);
+        padding-top: 2rem;
+        text-align: center;
+      }
+
+      .footer-bottom p {
+        color: var(--muted-foreground);
+        font-size: 0.875rem;
+      }
+
+      /* Utility classes */
+      .flex {
+        display: flex;
+      }
+
+      .flex-col {
+        flex-direction: column;
+      }
+
+      .items-center {
+        align-items: center;
+      }
+
+      .justify-between {
+        justify-content: space-between;
+      }
+
+      .space-y-4 > * + * {
+        margin-top: 1rem;
+      }
+
+      .text-sm {
+        font-size: 0.875rem;
+      }
+
+      .text-xs {
+        font-size: 0.75rem;
+      }
+
+      .mb-2 {
+        margin-bottom: 0.5rem;
+      }
+
+      .mb-4 {
+        margin-bottom: 1rem;
+      }
+
+      .mb-8 {
+        margin-bottom: 2rem;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-list {
+          display: none;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1.125rem;
+        }
+
+        .btn-gap {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+    </style>
   </head>
-
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="header-content">
+        <div class="header-top">
+          <a href="#" class="logo" onclick="showPage('home')">
+            <div class="logo-icon">EE</div>
+            <span class="logo-text">Electronics Engineering</span>
+          </a>
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="index.html" class="active">Home</a>
+            </li>
+            <li class="nav-item"><a href="projects.html">Projects</a></li>
+            <li class="nav-item"><a href="gallery.html">Gallery</a></li>
+            <li class="nav-item"><a href="about.html">About</a></li>
+            <li class="nav-item"><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Page: Home -->
+    <div id="page-home" class="page">
+      <main class="main">
+        <!-- Hero Section -->
+        <section class="hero">
+          <div>
+            <h1>Electronics Engineering Portfolio</h1>
+            <p>
+              Designing and building lithium-ion battery packs, PCBs, custom
+              tools, reflow ovens, 3D models, and schematics. This site
+              documents projects, shares knowledge, and showcases what I've
+              built in the world of electronics engineering.
+            </p>
+            <div class="flex btn-gap">
+              <a href="projects.html" class="btn btn-primary">
+                View Projects
+                <svg
+                  style="margin-left: 0.5rem; width: 1rem; height: 1rem"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+              <a href="about.html" class="btn btn-outline"> Learn More </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- What I Do Section -->
+        <section class="section">
+          <h2>What I Do</h2>
+          <div class="grid grid-cols-3">
+            <div class="space-y-4">
+              <svg
+                class="icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <h3>Battery Pack Design</h3>
+              <p>
+                Custom lithium-ion battery packs for specialized applications.
+                From single prototypes to small batch manufacturing with
+                integrated BMS and safety systems.
+              </p>
+            </div>
+            <div class="space-y-4">
+              <svg
+                class="icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
+                ></path>
+              </svg>
+              <h3>PCB Development</h3>
+              <p>
+                Circuit board design and manufacturing for control systems,
+                power management, and testing equipment. Surface-mount and
+                through-hole designs.
+              </p>
+            </div>
+            <div class="space-y-4">
+              <svg
+                class="icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                ></path>
+              </svg>
+              <h3>Custom Tools</h3>
+              <p>
+                Building specialized tools and equipment for electronics work:
+                load testers, spot welders, reflow ovens, and measurement
+                instruments.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section class="section">
+          <div class="flex items-center justify-between mb-8">
+            <h2>Featured Projects</h2>
+            <a href="#" onclick="showPage('projects')" class="btn btn-outline"
+              >View All Projects</a
+            >
+          </div>
+
+          <div class="grid grid-cols-3">
+            <div class="card">
+              <img
+                src="https://images.unsplash.com/photo-1609392553633-ba5e73b09cca?w=800&h=600&fit=crop"
+                alt="Custom Battery Business"
+              />
+              <div>
+                <h3>Custom Lithium Battery Pack Business</h3>
+                <p>
+                  Building a complete business around custom lithium-ion battery
+                  pack design and manufacturing for specialized applications.
+                </p>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="status-badge status-in-progress"
+                    >In Progress</span
+                  >
+                  <a
+                    href="projects.html"
+                    style="
+                      color: var(--primary);
+                      text-decoration: none;
+                      font-size: 0.875rem;
+                    "
+                    >View Details →</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop"
+                alt="Battery Pack Tester"
+              />
+              <div>
+                <h3>Lithium Battery Pack Load Tester</h3>
+                <p>
+                  Programmable load tester for safely discharging lithium
+                  battery packs to storage voltage before long-term storage.
+                </p>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="status-badge status-completed">Completed</span>
+                  <a
+                    href="projects.html"
+                    style="
+                      color: var(--primary);
+                      text-decoration: none;
+                      font-size: 0.875rem;
+                    "
+                    >View Details →</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&h=600&fit=crop"
+                alt="Spot Welder"
+              />
+              <div>
+                <h3>Spot Welder Controller for Battery Assembly</h3>
+                <p>
+                  Precision timing controller for microwave transformer-based
+                  spot welder to reliably join nickel strips in battery pack
+                  construction.
+                </p>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="status-badge status-completed">Completed</span>
+                  <a
+                    href="projects.html"
+                    style="
+                      color: var(--primary);
+                      text-decoration: none;
+                      font-size: 0.875rem;
+                    "
+                    >View Details →</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Additional Featured Work -->
+        <section class="section">
+          <div class="flex items-center justify-between mb-8">
+            <h2>More Featured Work</h2>
+            <a href="gallery.html" class="btn btn-outline"> View Gallery </a>
+          </div>
+
+          <div class="grid grid-cols-2">
+            <div class="card">
+              <img
+                src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop"
+                alt="Modular Case System"
+              />
+              <div>
+                <h3>Modular Battery Case System</h3>
+                <p>
+                  Flexible enclosure system for custom battery packs with
+                  standardized mounting and connection interfaces for various
+                  applications.
+                </p>
+                <div class="flex items-center justify-between text-sm">
+                  <div style="color: var(--muted-foreground)">
+                    <span class="status-badge status-in-progress"
+                      >In Progress</span
+                    >
+                  </div>
+                  <a
+                    href="projects.html"
+                    style="color: var(--primary); text-decoration: none"
+                    >View Details →</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop"
+                alt="Reflow Oven"
+              />
+              <div>
+                <h3>SMD Reflow Oven Conversion</h3>
+                <p>
+                  Converting a standard toaster oven into a precision reflow
+                  oven for surface-mount PCB assembly with PID temperature
+                  control.
+                </p>
+                <div class="flex items-center justify-between text-sm">
+                  <div style="color: var(--muted-foreground)">
+                    <span class="status-badge status-completed">Completed</span>
+                  </div>
+                  <a
+                    href="projects.html"
+                    style="color: var(--primary); text-decoration: none"
+                    >View Details →</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div>
+            <h3>Electronics Engineering</h3>
+            <p>
+              Designing and building lithium-ion battery packs, PCBs, custom
+              tools, and electronics projects. Documenting the journey from
+              concept to creation.
+            </p>
+          </div>
+
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Technologies</h4>
+            <ul>
+              <li>Lithium-ion Battery Design</li>
+              <li>PCB Design & Manufacturing</li>
+              <li>3D Modeling & Printing</li>
+              <li>Reflow Oven Construction</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            © 2024 Electronics Engineering Portfolio. Built for showcasing
+            hardware projects.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Header scroll effect
+      window.addEventListener("scroll", function () {
+        const header = document.getElementById("header");
+        if (window.scrollY > 20) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+    </script>
   </body>
 </html>
