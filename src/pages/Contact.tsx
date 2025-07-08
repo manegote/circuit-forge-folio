@@ -33,7 +33,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="max-w-4xl mx-auto px-4">
+      <main className="max-w-4xl mx-auto px-4 pt-32">
         <Breadcrumb items={[{ label: "Contact" }]} />
         
         <div className="py-8">

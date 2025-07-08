@@ -1,7 +1,7 @@
-import { Search, Menu } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 interface HeaderProps {
   onSearch?: (query: string) => void;
@@ -9,6 +9,17 @@ interface HeaderProps {
 
 const Header = ({ onSearch }: HeaderProps) => {
   const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
     { path: "/", label: "Home" },
@@ -20,27 +31,19 @@ const Header = ({ onSearch }: HeaderProps) => {
   ];
 
   return (
-    <header className="bg-header-bg border-b-4 border-accent">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled 
+        ? 'bg-header-bg/80 backdrop-blur-md border-b border-accent/30 shadow-lg' 
+        : 'bg-header-bg border-b-4 border-accent'
+    }`}>
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between py-2">
-          <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <div className="w-8 h-8 bg-header-text rounded-sm flex items-center justify-center">
               <span className="text-header-bg font-bold text-sm">EE</span>
             </div>
             <span className="text-header-text font-bold text-lg">Electronics Engineering</span>
-          </div>
-          
-          <div className="hidden md:flex items-center gap-6">
-            <div className="flex items-center gap-2">
-              <Search className="w-4 h-4 text-header-text" />
-              <Input
-                type="search"
-                placeholder="Search projects and posts..."
-                className="w-64 bg-header-text/10 border-header-text/20 text-header-text placeholder:text-header-text/70"
-                onChange={(e) => onSearch?.(e.target.value)}
-              />
-            </div>
-          </div>
+          </Link>
 
           <Button variant="ghost" size="icon" className="md:hidden text-header-text">
             <Menu className="w-6 h-6" />

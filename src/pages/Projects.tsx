@@ -50,7 +50,7 @@ const Projects = () => {
     <div className="min-h-screen bg-background">
       <Header onSearch={setSearchQuery} />
       
-      <main className="max-w-6xl mx-auto px-4">
+      <main className="max-w-6xl mx-auto px-4 pt-32">
         <Breadcrumb items={[{ label: "Projects" }]} />
         
         <div className="py-8">

@@ -14,7 +14,7 @@ const ProjectDetail = () => {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <main className="max-w-4xl mx-auto px-4 py-16 text-center">
+        <main className="max-w-4xl mx-auto px-4 py-16 text-center pt-32">
           <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
           <p className="text-muted-foreground mb-8">The requested project could not be found.</p>
           <Button asChild variant="outline">
@@ -54,7 +54,7 @@ const ProjectDetail = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="max-w-4xl mx-auto px-4">
+      <main className="max-w-4xl mx-auto px-4 pt-32">
         <Breadcrumb items={[
           { label: "Projects", path: "/projects" },
           { label: project.title }
