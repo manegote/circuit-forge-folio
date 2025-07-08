@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - Electronics Engineering Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="header-content">
+        <div class="header-top">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">EE</div>
+            <span class="logo-text">Electronics Engineering</span>
+          </a>
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item"><a href="blog.html">Blog</a></li>
+            <li class="nav-item"><a href="projects.html">Projects</a></li>
+            <li class="nav-item">
+              <a href="gallery.html" class="active">Gallery</a>
+            </li>
+            <li class="nav-item"><a href="about.html">About</a></li>
+            <li class="nav-item"><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> → <span>Gallery</span>
+      </div>
+
+      <div class="py-8">
+        <h1>Project Gallery</h1>
+        <p class="subtitle">
+          Visual documentation of projects, designs, PCBs, tools, and
+          components. Click any image to view fullscreen with download options.
+        </p>
+
+        <!-- Search and Filters -->
+        <div class="filter-section">
+          <div class="filter-header">
+            <svg
+              class="filter-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.414A1 1 0 013 6.707V4z"
+              ></path>
+            </svg>
+            <span>Filter Images</span>
+          </div>
+
+          <div class="filter-grid">
+            <div>
+              <label>Search</label>
+              <div class="search-container">
+                <svg
+                  class="search-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+                <input
+                  type="search"
+                  placeholder="Search images..."
+                  id="searchInput"
+                  class="search-input"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label>Category</label>
+              <select id="categoryFilter" class="filter-select">
+                <option value="">All Categories</option>
+                <option value="Photos">Photos</option>
+                <option value="Designs">Designs</option>
+                <option value="PCBs">PCBs</option>
+                <option value="Mockups">Mockups</option>
+                <option value="Parts">Parts</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Tag</label>
+              <select id="tagFilter" class="filter-select">
+                <option value="">All Tags</option>
+                <option value="PCB">PCB</option>
+                <option value="Battery">Battery</option>
+                <option value="Arduino">Arduino</option>
+                <option value="Testing">Testing</option>
+                <option value="Welding">Welding</option>
+                <option value="Assembly">Assembly</option>
+                <option value="3D">3D</option>
+                <option value="Components">Components</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-results" id="filterResults" style="display: none">
+            <span id="resultsText"></span>
+            <button
+              onclick="clearGalleryFilters()"
+              class="btn btn-outline btn-sm"
+            >
+              Clear Filters
+            </button>
+          </div>
+        </div>
+
+        <!-- Image Grid -->
+        <div class="gallery-grid" id="galleryGrid">
+          <div
+            class="gallery-item"
+            data-category="PCBs"
+            data-tags="PCB,BMS,Battery,Protection"
+            data-id="bms-pcb-top"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop"
+              alt="BMS PCB Top Layer"
+            />
+            <div class="gallery-overlay">
+              <button
+                class="btn btn-outline btn-sm"
+                onclick="openModal('bms-pcb-top')"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+                  ></path>
+                </svg>
+                View
+              </button>
+              <button
+                class="btn btn-outline btn-sm"
+                onclick="downloadImage('https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop', 'bms-pcb-top.jpg')"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                  ></path>
+                </svg>
+                Download
+              </button>
+            </div>
+            <div class="gallery-info">
+              <h3>BMS PCB Top Layer</h3>
+              <p>
+                Top layer view of custom Battery Management System PCB with
+                protection circuits and balancing
+              </p>
+              <div class="tags">
+                <span class="tag">#PCB</span>
+                <span class="tag">#BMS</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="gallery-item"
+            data-category="PCBs"
+            data-tags="PCB,Arduino,Testing,Control"
+            data-id="load-tester-board"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop"
+              alt="Load Tester Control Board"
+            />
+            <div class="gallery-overlay">
+              <button
+                class="btn btn-outline btn-sm"
+                onclick="openModal('load-tester-board')"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+                  ></path>
+                </svg>
+                View
+              </button>
+              <button
+                class="btn btn-outline btn-sm"
+                onclick="downloadImage('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop', 'load-tester-board.jpg')"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                  ></path>
+                </svg>
+                Download
+              </button>
+            </div>
+            <div class="gallery-info">
+              <h3>Load Tester Control Board</h3>
+              <p>
+                Arduino-based control board for the lithium battery pack load
+                tester
+              </p>
+              <div class="tags">
+                <span class="tag">#PCB</span>
+                <span class="tag">#Arduino</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="gallery-item"
+            data-category="Photos"
+            data-tags="Assembly,Workstation,Battery,Tools"
+            data-id="battery-assembly-station"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1609392553633-ba5e73b09cca?w=800&h=600&fit=crop"
+              alt="Battery Pack Assembly Station"
+            />
+            <div class="gallery-overlay">
+              <button
+                class="btn btn-outline btn-sm"
+                onclick="openModal('battery-assembly-station')"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+                  ></path>
+                </svg>
+                View
+              </button>
+              <button
+                class="btn btn-outline btn-sm"
+                onclick="downloadImage('https://images.unsplash.com/photo-1609392553633-ba5e73b09cca?w=800&h=600&fit=crop', 'battery-assembly-station.jpg')"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                  ></path>
+                </svg>
+                Download
+              </button>
+            </div>
+            <div class="gallery-info">
+              <h3>Battery Pack Assembly Station</h3>
+              <p>
+                Complete workstation setup for lithium battery pack assembly
+                with spot welder and testing equipment
+              </p>
+              <div class="tags">
+                <span class="tag">#Assembly</span>
+                <span class="tag">#Battery</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="gallery-item"
+            data-category="Photos"
+            data-tags="Reflow,Temperature,SMD,Assembly"
+            data-id="reflow-oven-interior"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop"
+              alt="Reflow Oven Interior View"
+            />
+            <div class="gallery-overlay">
+              <button
+                class="btn btn-outline btn-sm"
+                onclick="openModal('reflow-oven-interior')"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+                  ></path>
+                </svg>
+                View
+              </button>
+              <button
+                class="btn btn-outline btn-sm"
+                onclick="downloadImage('https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop', 'reflow-oven-interior.jpg')"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                  ></path>
+                </svg>
+                Download
+              </button>
+            </div>
+            <div class="gallery-info">
+              <h3>Reflow Oven Interior View</h3>
+              <p>
+                Interior view of converted toaster oven showing temperature
+                sensor placement and heating elements
+              </p>
+              <div class="tags">
+                <span class="tag">#Reflow</span>
+                <span class="tag">#Temperature</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="gallery-item"
+            data-category="Designs"
+            data-tags="CAD,3D,Design,Mechanical"
+            data-id="case-system-cad"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop"
+              alt="Modular Case System CAD"
+            />
+            <div class="gallery-overlay">
+              <button
+                class="btn btn-outline btn-sm"
+                onclick="openModal('case-system-cad')"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+                  ></path>
+                </svg>
+                View
+              </button>
+              <button
+                class="btn btn-outline btn-sm"
+                onclick="downloadImage('https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop', 'case-system-cad.jpg')"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                  ></path>
+                </svg>
+                Download
+              </button>
+            </div>
+            <div class="gallery-info">
+              <h3>Modular Case System CAD</h3>
+              <p>
+                3D CAD model of modular battery case system showing component
+                interfaces and assembly
+              </p>
+              <div class="tags">
+                <span class="tag">#CAD</span>
+                <span class="tag">#3D</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="gallery-item"
+            data-category="Parts"
+            data-tags="Battery,18650,Lithium,Components"
+            data-id="lithium-cells-18650"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1609392553633-ba5e73b09cca?w=800&h=600&fit=crop"
+              alt="High-Quality 18650 Lithium Cells"
+            />
+            <div class="gallery-overlay">
+              <button
+                class="btn btn-outline btn-sm"
+                onclick="openModal('lithium-cells-18650')"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+                  ></path>
+                </svg>
+                View
+              </button>
+              <button
+                class="btn btn-outline btn-sm"
+                onclick="downloadImage('https://images.unsplash.com/photo-1609392553633-ba5e73b09cca?w=800&h=600&fit=crop', 'lithium-cells-18650.jpg')"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                  ></path>
+                </svg>
+                Download
+              </button>
+            </div>
+            <div class="gallery-info">
+              <h3>High-Quality 18650 Lithium Cells</h3>
+              <p>
+                Premium 18650 lithium-ion cells used in custom battery pack
+                construction
+              </p>
+              <div class="tags">
+                <span class="tag">#Battery</span>
+                <span class="tag">#Components</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- No results message -->
+        <div id="noResults" class="no-results" style="display: none">
+          <svg
+            width="64"
+            height="64"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            style="color: var(--muted-foreground); margin: 0 auto 1rem"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+            ></path>
+          </svg>
+          <p>No images found matching your search criteria.</p>
+          <button onclick="clearGalleryFilters()" class="btn btn-outline">
+            Clear Filters
+          </button>
+        </div>
+      </div>
+
+      <!-- Summary Stats -->
+      <div class="stats-section">
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-value">13</div>
+            <div class="stat-label">Total Images</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Categories</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" id="currentlyShowing">6</div>
+            <div class="stat-label">Currently Showing</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Fullscreen Modal -->
+    <div
+      id="imageModal"
+      class="modal"
+      style="display: none"
+      onclick="closeModal()"
+    >
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <button onclick="closeModal()" class="btn btn-outline modal-close">
+          <svg
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+
+        <img
+          id="modalImage"
+          src=""
+          alt=""
+          style="max-width: 100%; max-height: 80vh; object-fit: contain"
+        />
+
+        <div class="modal-info">
+          <h3 id="modalTitle"></h3>
+          <p id="modalDescription"></p>
+
+          <div class="modal-footer">
+            <div class="modal-tags" id="modalTags"></div>
+
+            <button onclick="downloadModalImage()" class="btn btn-outline">
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                style="margin-right: 0.5rem"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                ></path>
+              </svg>
+              Download
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div>
+            <h3>Electronics Engineering</h3>
+            <p>
+              Designing and building lithium-ion battery packs, PCBs, custom
+              tools, and electronics projects.
+            </p>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="blog.html">Blog Posts</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Technologies</h4>
+            <ul>
+              <li>Lithium-ion Battery Design</li>
+              <li>PCB Design & Manufacturing</li>
+              <li>3D Modeling & Printing</li>
+              <li>Reflow Oven Construction</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © 2024 Electronics Engineering Portfolio. Built for showcasing
+            hardware projects.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+      // Gallery data for modal
+      const galleryData = {
+        "bms-pcb-top": {
+          title: "BMS PCB Top Layer",
+          description:
+            "Top layer view of custom Battery Management System PCB with protection circuits and balancing",
+          url: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
+          tags: ["PCB", "BMS", "Battery", "Protection"],
+        },
+        "load-tester-board": {
+          title: "Load Tester Control Board",
+          description:
+            "Arduino-based control board for the lithium battery pack load tester",
+          url: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop",
+          tags: ["PCB", "Arduino", "Testing", "Control"],
+        },
+        "battery-assembly-station": {
+          title: "Battery Pack Assembly Station",
+          description:
+            "Complete workstation setup for lithium battery pack assembly with spot welder and testing equipment",
+          url: "https://images.unsplash.com/photo-1609392553633-ba5e73b09cca?w=800&h=600&fit=crop",
+          tags: ["Assembly", "Workstation", "Battery", "Tools"],
+        },
+        "reflow-oven-interior": {
+          title: "Reflow Oven Interior View",
+          description:
+            "Interior view of converted toaster oven showing temperature sensor placement and heating elements",
+          url: "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop",
+          tags: ["Reflow", "Temperature", "SMD", "Assembly"],
+        },
+        "case-system-cad": {
+          title: "Modular Case System CAD",
+          description:
+            "3D CAD model of modular battery case system showing component interfaces and assembly",
+          url: "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop",
+          tags: ["CAD", "3D Print", "Design", "Mechanical"],
+        },
+        "lithium-cells-18650": {
+          title: "High-Quality 18650 Lithium Cells",
+          description:
+            "Premium 18650 lithium-ion cells used in custom battery pack construction",
+          url: "https://images.unsplash.com/photo-1609392553633-ba5e73b09cca?w=800&h=600&fit=crop",
+          tags: ["Battery", "18650", "Lithium", "Components"],
+        },
+      };
+
+      let currentModalImage = null;
+
+      // Gallery filtering functionality
+      function filterGallery() {
+        const searchQuery = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const categoryFilter = document.getElementById("categoryFilter").value;
+        const tagFilter = document.getElementById("tagFilter").value;
+
+        const images = document.querySelectorAll("#galleryGrid .gallery-item");
+        let visibleCount = 0;
+
+        images.forEach((image) => {
+          const title = image.querySelector("h3").textContent.toLowerCase();
+          const description = image
+            .querySelector("p")
+            .textContent.toLowerCase();
+          const category = image.dataset.category;
+          const tags = image.dataset.tags.split(",");
+
+          const matchesSearch =
+            !searchQuery ||
+            title.includes(searchQuery) ||
+            description.includes(searchQuery);
+          const matchesCategory =
+            !categoryFilter || category === categoryFilter;
+          const matchesTag = !tagFilter || tags.includes(tagFilter);
+
+          if (matchesSearch && matchesCategory && matchesTag) {
+            image.style.display = "block";
+            visibleCount++;
+          } else {
+            image.style.display = "none";
+          }
+        });
+
+        // Update results
+        const filterResults = document.getElementById("filterResults");
+        const resultsText = document.getElementById("resultsText");
+        const noResults = document.getElementById("noResults");
+        const currentlyShowing = document.getElementById("currentlyShowing");
+
+        currentlyShowing.textContent = visibleCount;
+
+        if (searchQuery || categoryFilter || tagFilter) {
+          filterResults.style.display = "flex";
+          resultsText.textContent = `Showing ${visibleCount} of 13 images`;
+        } else {
+          filterResults.style.display = "none";
+        }
+
+        if (visibleCount === 0) {
+          noResults.style.display = "block";
+          document.getElementById("galleryGrid").style.display = "none";
+        } else {
+          noResults.style.display = "none";
+          document.getElementById("galleryGrid").style.display = "grid";
+        }
+      }
+
+      function clearGalleryFilters() {
+        document.getElementById("searchInput").value = "";
+        document.getElementById("categoryFilter").value = "";
+        document.getElementById("tagFilter").value = "";
+        filterGallery();
+      }
+
+      function openModal(imageId) {
+        const imageData = galleryData[imageId];
+        if (!imageData) return;
+
+        currentModalImage = imageData;
+
+        document.getElementById("modalImage").src = imageData.url;
+        document.getElementById("modalImage").alt = imageData.title;
+        document.getElementById("modalTitle").textContent = imageData.title;
+        document.getElementById("modalDescription").textContent =
+          imageData.description;
+
+        const tagsContainer = document.getElementById("modalTags");
+        tagsContainer.innerHTML = imageData.tags
+          .map((tag) => `<span class="modal-tag">#${tag}</span>`)
+          .join("");
+
+        document.getElementById("imageModal").style.display = "flex";
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+        document.body.style.overflow = "auto";
+        currentModalImage = null;
+      }
+
+      function downloadModalImage() {
+        if (currentModalImage) {
+          downloadImage(
+            currentModalImage.url,
+            `${currentModalImage.title.replace(/\s+/g, "-").toLowerCase()}.jpg`,
+          );
+        }
+      }
+
+      // Add event listeners
+      document
+        .getElementById("searchInput")
+        .addEventListener("input", filterGallery);
+      document
+        .getElementById("categoryFilter")
+        .addEventListener("change", filterGallery);
+      document
+        .getElementById("tagFilter")
+        .addEventListener("change", filterGallery);
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeModal();
+        }
+      });
+    </script>
+  </body>
+</html>
