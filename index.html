@@ -443,35 +443,12 @@
         <nav class="nav">
           <ul class="nav-list">
             <li class="nav-item">
-              <a
-                href="#"
-                onclick="showPage('home')"
-                id="nav-home"
-                class="active"
-                >Home</a
-              >
+              <a href="index.html" class="active">Home</a>
             </li>
-            <li class="nav-item">
-              <a href="#" onclick="showPage('blog')" id="nav-blog">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" onclick="showPage('projects')" id="nav-projects"
-                >Projects</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#" onclick="showPage('gallery')" id="nav-gallery"
-                >Gallery</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#" onclick="showPage('about')" id="nav-about">About</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" onclick="showPage('contact')" id="nav-contact"
-                >Contact</a
-              >
-            </li>
+            <li class="nav-item"><a href="projects.html">Projects</a></li>
+            <li class="nav-item"><a href="gallery.html">Gallery</a></li>
+            <li class="nav-item"><a href="about.html">About</a></li>
+            <li class="nav-item"><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -491,16 +468,10 @@
               built in the world of electronics engineering.
             </p>
             <div class="flex btn-gap">
-              <a
-                href="#"
-                onclick="showPage('projects')"
-                class="btn btn-primary"
-              >
-                View Projects →
+              <a href="projects.html" class="btn btn-primary">
+                View Projects ���
               </a>
-              <a href="#" onclick="showPage('blog')" class="btn btn-outline">
-                Read Blog Posts
-              </a>
+              <a href="about.html" class="btn btn-outline"> Learn More </a>
             </div>
           </div>
         </section>
@@ -607,8 +578,7 @@
                     >In Progress</span
                   >
                   <a
-                    href="#"
-                    onclick="showProjectDetail('custom-battery-business')"
+                    href="projects.html"
                     style="
                       color: var(--primary);
                       text-decoration: none;
@@ -633,8 +603,7 @@
                 <div class="flex items-center justify-between mb-4">
                   <span class="status-badge status-completed">Completed</span>
                   <a
-                    href="#"
-                    onclick="showProjectDetail('lithium-pack-tester')"
+                    href="projects.html"
                     style="
                       color: var(--primary);
                       text-decoration: none;
@@ -660,8 +629,7 @@
                 <div class="flex items-center justify-between mb-4">
                   <span class="status-badge status-completed">Completed</span>
                   <a
-                    href="#"
-                    onclick="showProjectDetail('spot-welder-controller')"
+                    href="projects.html"
                     style="
                       color: var(--primary);
                       text-decoration: none;
@@ -675,62 +643,60 @@
           </div>
         </section>
 
-        <!-- Recent Posts -->
+        <!-- Additional Featured Work -->
         <section class="section">
           <div class="flex items-center justify-between mb-8">
-            <h2>Recent Posts</h2>
-            <a href="#" onclick="showPage('blog')" class="btn btn-outline">
-              View All Posts
-            </a>
+            <h2>More Featured Work</h2>
+            <a href="gallery.html" class="btn btn-outline"> View Gallery </a>
           </div>
 
           <div class="grid grid-cols-2">
             <div class="card">
               <img
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop"
-                alt="Building Load Tester"
+                src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop"
+                alt="Modular Case System"
               />
               <div>
-                <h3>Building a Custom Lithium Battery Pack Load Tester</h3>
+                <h3>Modular Battery Case System</h3>
                 <p>
-                  Designing and constructing a programmable load tester for
-                  safely discharging lithium battery packs to storage voltage
-                  before long-term storage.
+                  Flexible enclosure system for custom battery packs with
+                  standardized mounting and connection interfaces for various
+                  applications.
                 </p>
                 <div class="flex items-center justify-between text-sm">
                   <div style="color: var(--muted-foreground)">
-                    <span>2024-01-15</span> • <span>8 min read</span>
+                    <span class="status-badge status-in-progress"
+                      >In Progress</span
+                    >
                   </div>
                   <a
-                    href="#"
-                    onclick="showBlogPost('building-lithium-pack-tester')"
+                    href="projects.html"
                     style="color: var(--primary); text-decoration: none"
-                    >Read More →</a
+                    >View Details →</a
                   >
                 </div>
               </div>
             </div>
             <div class="card">
               <img
-                src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&h=600&fit=crop"
-                alt="Spot Welder Controller"
+                src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop"
+                alt="Reflow Oven"
               />
               <div>
-                <h3>DIY Spot Welder Controller for Battery Pack Assembly</h3>
+                <h3>SMD Reflow Oven Conversion</h3>
                 <p>
-                  Creating a precision timing controller for a microwave
-                  transformer-based spot welder to reliably join nickel strips
-                  in battery pack construction.
+                  Converting a standard toaster oven into a precision reflow
+                  oven for surface-mount PCB assembly with PID temperature
+                  control.
                 </p>
                 <div class="flex items-center justify-between text-sm">
                   <div style="color: var(--muted-foreground)">
-                    <span>2024-01-08</span> • <span>6 min read</span>
+                    <span class="status-badge status-completed">Completed</span>
                   </div>
                   <a
-                    href="#"
-                    onclick="showBlogPost('spot-welder-controller')"
+                    href="projects.html"
                     style="color: var(--primary); text-decoration: none"
-                    >Read More →</a
+                    >View Details →</a
                   >
                 </div>
               </div>
@@ -756,10 +722,10 @@
           <div>
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="#" onclick="showPage('projects')">Projects</a></li>
-              <li><a href="#" onclick="showPage('blog')">Blog Posts</a></li>
-              <li><a href="#" onclick="showPage('gallery')">Gallery</a></li>
-              <li><a href="#" onclick="showPage('about')">About</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
 
@@ -784,31 +750,6 @@
     </footer>
 
     <script>
-      // Navigation and page management
-      function showPage(pageId) {
-        // Hide all pages
-        const pages = document.querySelectorAll(".page");
-        pages.forEach((page) => (page.style.display = "none"));
-
-        // Show selected page
-        const selectedPage = document.getElementById("page-" + pageId);
-        if (selectedPage) {
-          selectedPage.style.display = "block";
-        }
-
-        // Update nav
-        const navLinks = document.querySelectorAll(".nav-item a");
-        navLinks.forEach((link) => link.classList.remove("active"));
-
-        const activeLink = document.getElementById("nav-" + pageId);
-        if (activeLink) {
-          activeLink.classList.add("active");
-        }
-
-        // Scroll to top
-        window.scrollTo(0, 0);
-      }
-
       // Header scroll effect
       window.addEventListener("scroll", function () {
         const header = document.getElementById("header");
@@ -817,29 +758,6 @@
         } else {
           header.classList.remove("scrolled");
         }
-      });
-
-      // Project detail navigation
-      function showProjectDetail(projectId) {
-        alert(
-          "Project detail page for: " +
-            projectId +
-            "\n\nIn a full implementation, this would show detailed project information.",
-        );
-      }
-
-      // Blog post navigation
-      function showBlogPost(postId) {
-        alert(
-          "Blog post page for: " +
-            postId +
-            "\n\nIn a full implementation, this would show the full blog post content.",
-        );
-      }
-
-      // Initialize
-      document.addEventListener("DOMContentLoaded", function () {
-        showPage("home");
       });
     </script>
   </body>
